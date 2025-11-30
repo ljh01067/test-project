@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Request</title>
+    <link rel="stylesheet" href="styles.css">
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        window.onload = function() {
+            var message = /*[[${message}]]*/ null;
+            if (message) {
+                alert(message);
+            }
+        }
+        /*]]>*/
+    </script>
+</head>
+<body>
+
+<!-- 헤더와 푸터를 Thymeleaf 템플릿으로 포함 -->
+<div id="heads" xmlns:th="http://www.thymeleaf.org">
+    <th:block th:replace="common/head"/> <!-- 헤더 포함 -->
+</div>
+
+<!-- 본문 내용 -->
+<main>
+    <div class="title">REQUEST</div>
+    <div class="divider"></div>
+    <form action="/usr/request/submit" method="post" enctype="multipart/form-data" class="request-form">
+
+        <!-- 1. 개인정보 -->
+        <section>
+            <h2>1. 개인정보 입력</h2>
+            <label>이름 <input type="text" name="name" required></label><br>
+            <label>연락처 <input type="text" name="phone" required></label><br>
+            <label>이메일 <input type="email" name="email" required></label>
+
+            <label class="checkbox">
+                <input type="checkbox" name="privacyAgree" required>
+                개인정보 수집 및 이용에 동의합니다
+            </label>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- 2. 프로젝트 정보 -->
+        <section>
+            <h2>2. 프로젝트 기본 정보</h2>
+
+            <p>작업 범위 선택 (중복 가능)</p>
+            <div class="work-scope">
+                <label><input type="checkbox" name="scope" value="작곡"> 작곡</label>
+                <label><input type="checkbox" name="scope" value="편곡"> 편곡</label>
+                <label><input type="checkbox" name="scope" value="작사"> 작사</label>
+                <label><input type="checkbox" name="scope" value="믹스"> 믹스</label>
+                <label><input type="checkbox" name="scope" value="마스터"> 마스터</label>
+            </div>
+
+            <label>희망 마감일 <input type="date" name="deadline" required></label><br>
+            <label>참고 장르 <input type="text" name="genre" required></label><br>
+
+            <label>레퍼런스 URL
+                <input type="url" name="referenceUrl" placeholder="https://example.com" required>
+            </label>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- 3. 파일 업로드 -->
+        <section>
+            <h2>3. 파일 업로드</h2>
+            <label>가이드 보컬 파일 <input type="file" name="guide" required></label><br>
+            <label>MIDI / 가사 / 이미지 <input type="file" name="files" multiple></label><br>
+            <label>레퍼런스 음악 파일 <input type="file" name="reference" required></label>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- 4. 추가 요청 -->
+        <section>
+            <h2>4. 추가 요청 사항</h2>
+            <textarea name="details" placeholder="프로젝트에 대한 상세 요청을 입력하세요" required></textarea>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- 5. 최종 확인 -->
+        <section>
+            <h2>5. 제출 전 확인</h2>
+            <label class="checkbox"><input type="checkbox" name="costAgree" required> 비용 안내 확인</label>
+            <label class="checkbox"><input type="checkbox" name="policyAgree" required> 정책에 동의</label>
+
+            <button type="submit" class="submit-btn">제출하기</button>
+        </section>
+
+    </form>
+</main>
+
+<!-- 푸터를 Thymeleaf 템플릿으로 포함 -->
+<div id="foot" xmlns:th="http://www.thymeleaf.org">
+    <th:block th:replace="common/foot"/> <!-- 푸터 포함 -->
+</div>
+
+</body>
+</html>

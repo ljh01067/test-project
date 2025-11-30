@@ -86,22 +86,15 @@ a {
     font-size: 40px;
 }
 
-.tw-head .menu {
+.menu {
     display: flex;
     justify-content: flex-end;  /* 오른쪽 정렬 */
-    gap: 50px;  /* 메뉴 간격 */
+    font-size: 15px;
 }
 
 .tw-head .menu a {
-    font-size: 30px;
-}
-
-.tw-head .menu a:first-child {
-    margin-right: 0; /* 첫 번째 링크는 오른쪽 여백 없앰 */
-}
-
-.tw-head .menu a:not(:first-child) {
-    margin-right: 30px; /* 나머지 링크들 간 간격 */
+    font-size: 15px;
+    margin-right: 50px;
 }
 
 .tw-container {
@@ -134,3 +127,151 @@ a {
     align-items: center;
 }
 
+.title {
+   font-size: 50px;
+   text-align: center;
+}
+
+.divider {
+  height: 1px;
+  background: #ddd;       /* 또는 border-bottom 사용 */
+  margin: 24px 0;
+}
+
+.request-form {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+/* input, textarea 공통 */
+.request-form input,
+.request-form textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 6px;
+    margin-left: 6px;
+    font-size: 15px;
+}
+
+.request-form textarea {
+    width: 100%;
+}
+
+input[type="text"] input[type="email"] {
+    width: 100%;
+}
+
+/* 체크박스 정렬 */
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.work-scope input[type="checkbox"] {
+    width: auto;
+    margin-right: 6px;   /* 텍스트와 간격만 유지 */
+}
+
+.work-scope label {
+    display: flex;
+    align-items: center;
+    width: auto;  /* 길이 제한 X */
+    margin-right: 15px;
+}
+
+/* textarea */
+textarea {
+    height: 140px;
+    resize: none;
+}
+
+/* 제출 버튼 */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    background: #000;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.submit-btn:hover {
+    opacity: 0.85;
+}
+
+.toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            top: 30px;
+            transform: translateX(-50%);
+            font-size: 17px;
+        }
+
+        .toast.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 1.5s; /* 2.5s → 1.5s로 변경 */
+        }
+
+
+        @keyframes fadein {
+            from {top: 0; opacity: 0;}
+            to {top: 30px; opacity: 1;}
+        }
+
+        @keyframes fadeout {
+            from {top: 30px; opacity: 1;}
+            to {top: 0; opacity: 0;}
+        }
+        .main-section {
+            width: 100%;
+            min-height: 100vh; /* 화면 높이를 최소 100%로 */
+            box-sizing: border-box; /* 패딩 포함 크기 계산 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 세로 중앙 정렬 */
+            align-items: center; /* 가로 중앙 정렬 */
+            text-align: center; /* 텍스트 가운데 정렬 */
+            margin-bottom:-80px;
+        }
+        .section-intro {
+            background-color:#f5f5f5;
+        }
+        .section-services{
+            background-color:#ffe8e8;
+        }
+        .section-news{
+            background-color:#e8f7ff;
+        }
+        .services-cards{
+            display:flex;
+            justify-content:center;
+            gap:40px;
+            margin-top:40px;
+        }
+        .tw-padding-0{
+            padding:0;
+        }

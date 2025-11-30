@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Main Page</title>
-    <link rel="stylesheet" href="styles.css"> <!-- CSS 파일 경로 -->
+    <title>Main</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css"> <!-- CSS 파일 경로 -->
 </head>
 <body>
 
@@ -13,10 +13,36 @@
 </div>
 
 <!-- 본문 내용 -->
-<main>
-    <h1>Here is the Main Page</h1>
-    <p>본문 내용이 적으면 푸터가 화면 맨 아래에 고정되고, 본문 내용이 많아지면 푸터가 자연스럽게 본문 아래로 밀려납니다.</p>
-    <p>본문 내용이 더 많아지면 페이지가 늘어나고 세로 스크롤이 생깁니다. 푸터는 항상 페이지 하단에 위치합니다.</p>
+<main class="tw-padding-0">
+    <section class="section-intro main-section">
+        <h1>우리 회사에 오신 것을 환영합니다</h1>
+        <p>초기 단계의 음악 제작 스튜디오입니다.<br>작곡, 편곡, 작사, 믹스/마스터 등 다양한 음악 프로젝트를 진행합니다.</p>
+    </section>
+    <section class="section-services main-section">
+        <h2>Our Services</h2>
+        <div class="services-cards">
+            <div class="card">
+                <h3>작곡</h3>
+                <p>맞춤형 곡 제작</p>
+            </div>
+            <div class="card">
+                <h3>편곡</h3>
+                <p>원곡에 어울리는 편곡</p>
+            </div>
+            <div class="card">
+                <h3>작사</h3>
+                <p>감성을 담은 가사 제작</p>
+            </div>
+            <div class="card">
+                <h3>믹스/마스터</h3>
+                <p>최종 음원 품질 완성</p>
+            </div>
+        </div>
+    </section>
+    <section class="section-news main-section">
+        <h2>Latest News</h2>
+        <p>현재 진행 중인 프로젝트와 곧 공개될 아티스트 소식을 확인하세요.<br>창작에 열정 있는 분들을 위한 기회가 열립니다.</p>
+    </section>
 </main>
 
 <!-- 푸터를 Thymeleaf 템플릿으로 포함 -->

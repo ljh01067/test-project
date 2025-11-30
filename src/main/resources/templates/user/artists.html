@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Artist</title>
+    <link rel="stylesheet" href="styles.css"> <!-- CSS 파일 경로 -->
+</head>
+<body>
+
+<!-- 헤더와 푸터를 Thymeleaf 템플릿으로 포함 -->
+<div id="heads" xmlns:th="http://www.thymeleaf.org">
+    <th:block th:replace="common/head"/> <!-- 헤더 포함 -->
+</div>
+
+<!-- 본문 내용 -->
+<main>
+    <div class="title">ARTISTS</div>
+    <div class="divider"></div>
+
+    <p>우리와 함께할 창작자를 찾습니다!<br>
+        음악 제작, 작곡, 편곡, 작사, 믹스/마스터 등 다양한 분야에서 함께할 창작자를 기다립니다.</p>
+
+    <p>지금은 초기 단계지만, 앞으로 다양한 프로젝트와 협업 기회를 제공할 예정입니다.<br>
+        창작에 열정이 있는 분들의 많은 관심 바랍니다.</p>
+
+    <div class="divider"></div>
+
+    <p>관심 있는 분들은 <a href="/contact">Contact 페이지</a>를 통해 문의 또는 지원해주세요.<br>
+        선정된 아티스트는 향후 이 페이지에 프로필이 등록되어 소개됩니다.</p>
+</main>
+
+<!-- 푸터를 Thymeleaf 템플릿으로 포함 -->
+<div id="foot" xmlns:th="http://www.thymeleaf.org">
+    <th:block th:replace="common/foot"/> <!-- 푸터 포함 -->
+</div>
+
+</body>
+</html>
