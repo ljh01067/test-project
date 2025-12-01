@@ -13,13 +13,13 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         Dotenv dotenv = Dotenv.load();
+        System.setProperty("MAIL_USERNAME", dotenv.get("MAIL_USERNAME"));
+        System.setProperty("MAIL_PASSWORD", dotenv.get("MAIL_PASSWORD"));
 
         SpringApplication app = new SpringApplication(Main.class);
 
         // Dotenv 값 Spring Environment로 전달
         app.setDefaultProperties(Map.of(
-                "mail.username", dotenv.get("MAIL_USERNAME"),
-                "mail.password", dotenv.get("MAIL_PASSWORD"),
                 "company.phone", dotenv.get("COMPANY_PHONE", "전화번호 없음")
         ));
 
