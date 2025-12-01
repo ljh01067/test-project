@@ -8,89 +8,149 @@
 <body>
 <h1>📋 요청 관리 페이지</h1>
 
+<!-- 🔍 검색 입력 -->
+<input type="text" id="searchBox" placeholder="검색 (이름, 연락처, 이메일 등 입력)">
+
 <div th:if="${requests.isEmpty()}" class="empty-message">
     <p>등록된 요청이 없습니다.</p>
 </div>
 
-<table th:if="${!requests.isEmpty()}">
+<table th:if="${!requests.isEmpty()}" id="requestTable">
     <thead>
     <tr>
-        <th>ID</th>
-        <th>이름</th>
-        <th>연락처</th>
-        <th>이메일</th>
-        <th>작업범위</th>
-        <th>마감일</th>
-        <th>장르</th>
-        <th>레퍼런스 URL</th>
-        <th>추가 요청사항</th>
+        <th data-key="id">ID</th>
+        <th data-key="name">이름</th>
+        <th data-key="contact">연락처</th>
+        <th data-key="email">이메일</th>
+        <th data-key="workScope">작업범위</th>
+        <th data-key="deadline">희망 마감일</th>
+        <th data-key="genre">장르</th>
+        <th data-key="referenceLink">레퍼런스 URL</th>
+        <th data-key="note">추가 요청사항</th>
         <th>파일 다운로드</th>
-        <th>등록일</th>
+        <th data-key="createdAt">등록일</th>
     </tr>
     </thead>
+
     <tbody>
     <tr th:each="req : ${requests}">
-        <td th:text="${req.id}">1</td>
-        <td th:text="${req.name}">홍길동</td>
-        <td th:text="${req.contact}">010-1234-5678</td>
-        <td th:text="${req.email}">email@example.com</td>
-        <td th:text="${req.workScope}">작곡, 편곡</td>
-        <td th:text="${req.deadline != null ? #temporals.format(req.deadline, 'yyyy-MM-dd') : '-'}">2025-12-31</td>
-        <td th:text="${req.genre}">팝</td>
+        <td th:text="${req.id}"></td>
+        <td th:text="${req.name}"></td>
+        <td th:text="${req.contact}"></td>
+        <td th:text="${req.email}"></td>
+        <td th:text="${req.workScope}"></td>
+        <td th:text="${req.deadline != null ? #temporals.format(req.deadline, 'yyyy-MM-dd') : '-'}"></td>
+        <td th:text="${req.genre}"></td>
 
-        <!-- 레퍼런스 URL -->
-        <td class="url-cell">
+        <!-- URL -->
+        <td>
             <a th:if="${req.referenceLink != null and !req.referenceLink.isEmpty()}"
-               th:href="${req.referenceLink}"
-               th:text="${req.referenceLink}"
-               target="_blank">
-                링크
-            </a>
-            <span th:unless="${req.referenceLink != null and !req.referenceLink.isEmpty()}"
-                  class="no-data">없음</span>
+               th:href="${req.referenceLink}" target="_blank"
+               th:text="${req.referenceLink}"></a>
+            <span th:unless="${req.referenceLink != null and !req.referenceLink.isEmpty()}">없음</span>
         </td>
 
         <!-- 추가 요청사항 -->
-        <td class="note-cell">
-                    <span th:if="${req.note != null and !req.note.isEmpty()}"
-                          th:text="${req.note}">요청 내용</span>
-            <span th:unless="${req.note != null and !req.note.isEmpty()}"
-                  class="no-data">없음</span>
+        <td>
+            <span th:if="${req.note != null and !req.note.isEmpty()}"
+                  th:text="${req.note}"></span>
+            <span th:unless="${req.note != null and !req.note.isEmpty()}">없음</span>
         </td>
 
-        <!-- 파일 다운로드 -->
+        <!-- 파일 -->
         <td class="file-links">
             <div th:if="${req.guideFile != null and req.guideFile.length > 0}">
                 <a th:href="@{/admin/requests/download/{id}/guide(id=${req.id})}" download>
                     🎤 가이드 (<span th:text="${#numbers.formatDecimal(req.guideFile.length / 1024.0 / 1024.0, 1, 2)}">0.00</span> MB)
                 </a>
             </div>
-            <div th:unless="${req.guideFile != null and req.guideFile.length > 0}" class="no-file">
-                가이드 없음
-            </div>
-
             <div th:if="${req.midiFile != null and req.midiFile.length > 0}">
                 <a th:href="@{/admin/requests/download/{id}/midi(id=${req.id})}" download>
                     🎹 MIDI (<span th:text="${#numbers.formatDecimal(req.midiFile.length / 1024.0 / 1024.0, 1, 2)}">0.00</span> MB)
                 </a>
             </div>
-            <div th:unless="${req.midiFile != null and req.midiFile.length > 0}" class="no-file">
-                MIDI 없음
-            </div>
-
             <div th:if="${req.referenceFile != null and req.referenceFile.length > 0}">
                 <a th:href="@{/admin/requests/download/{id}/reference(id=${req.id})}" download>
                     🎵 레퍼런스 (<span th:text="${#numbers.formatDecimal(req.referenceFile.length / 1024.0 / 1024.0, 1, 2)}">0.00</span> MB)
                 </a>
             </div>
-            <div th:unless="${req.referenceFile != null and req.referenceFile.length > 0}" class="no-file">
-                레퍼런스 없음
-            </div>
         </td>
 
-        <td th:text="${#temporals.format(req.createdAt, 'yyyy-MM-dd HH:mm')}">2025-11-30 12:00</td>
+        <td th:text="${#temporals.format(req.createdAt, 'yyyy-MM-dd HH:mm')}"></td>
     </tr>
     </tbody>
 </table>
+
+<script>
+    /* 🔍 검색 기능 */
+    document.getElementById("searchBox").addEventListener("keyup", function () {
+        const keyword = this.value.toLowerCase();
+        const rows = document.querySelectorAll("#requestTable tbody tr");
+
+        rows.forEach(row => {
+            const text = row.innerText.toLowerCase();
+            row.style.display = text.includes(keyword) ? "" : "none";
+        });
+    });
+
+    /* 📌 정렬 기능 */
+    const table = document.getElementById("requestTable");
+    const headers = table.querySelectorAll("th[data-key]");
+    let sortState = {};  // 각 컬럼별 상태 저장
+
+    headers.forEach((th, index) => {
+    th.addEventListener("click", () => {
+        const key = th.dataset.key;
+        const rows = Array.from(table.querySelectorAll("tbody tr"));
+
+        // id 컬럼 초기 로드 시 오름차순
+        let direction;
+        if (!sortState[key]) {
+            direction = key === "id" ? "asc" : "desc"; // id만 처음에 asc
+        } else {
+            direction = sortState[key] === "asc" ? "desc" : "asc"; // 나머지 컬럼은 토글
+        }
+
+        sortState[key] = direction;
+
+        // 정렬 표시 초기화
+        headers.forEach(h => h.classList.remove("sort-asc", "sort-desc"));
+        th.classList.add(direction === "asc" ? "sort-asc" : "sort-desc");
+
+        // 실제 데이터 기준 정렬
+        rows.sort((a, b) => {
+            const valA = a.children[index].innerText.trim();
+            const valB = b.children[index].innerText.trim();
+
+            // 숫자 정렬
+            if (!isNaN(valA) && !isNaN(valB)) {
+                return direction === "asc" ? valA - valB : valB - valA;
+            }
+
+            // 날짜 정렬 (yyyy-mm-dd)
+            if (valA.match(/^\d{4}-\d{2}-\d{2}/)) {
+                return direction === "asc"
+                    ? new Date(valA) - new Date(valB)
+                    : new Date(valB) - new Date(valA);
+            }
+
+            // 문자열 정렬
+            return direction === "asc"
+                ? valA.localeCompare(valB)
+                : valB.localeCompare(valA);
+        });
+
+        // 정렬된 결과 적용
+        const tbody = table.querySelector("tbody");
+        rows.forEach(row => tbody.appendChild(row));
+    });
+});
+
+// 페이지 로드 시 id 오름차순 적용
+window.addEventListener("DOMContentLoaded", () => {
+    const idHeader = table.querySelector("th[data-key='id']");
+    if (idHeader) idHeader.click();
+});
+</script>
 </body>
 </html>

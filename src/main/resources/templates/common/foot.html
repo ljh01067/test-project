@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" data-theme="light">
-<head>
-    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
-    <meta charset="UTF-8">
-    <title>Company Footer</title>
-</head>
-<body>
-<!-- 푸터 시작 -->
-<div class="tw-foot">
+<div th:fragment="footFragment" class="tw-foot" xmlns:th="http://www.thymeleaf.org">
     <!-- 상단 부분: 회사 로고와 SNS 아이콘 -->
     <div class="footer-top">
         <div class="logo">
-            <div>LOGO</div> <!-- "LOGO" 텍스트만 표시 -->
+            <div>LOGO</div>
         </div>
 
         <div class="social-icons">
@@ -24,12 +15,9 @@
     <!-- 하단 부분: 회사 정보 -->
     <div class="footer-bottom">
         <p>소재지: 경기도 고양시 덕양구 향동동 523 디엠씨스타허브플러스, 1408호</p>
-        <p>연락처: 02-1234-5678</p>
+        <p>연락처: <span th:text="${companyPhone}">전화번호</span></p>
         <p>이메일: hellowavrecords@gmail.com</p>
         <p>대표이사: 이서준,김철수,박유리</p>
     </div>
 </div>
-<!-- 푸터 끝 -->
 
-</body>
-</html>

@@ -30,6 +30,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("com.mysql:mysql-connector-j:8.4.0")
+    implementation("jakarta.annotation:jakarta.annotation-api:2.1.1")
 }
 
 tasks.test {

@@ -80,3 +80,35 @@ body {
             color: #999;
             font-style: italic;
         }
+
+        #searchBox {
+            margin-bottom: 20px;
+            padding: 10px 12px;
+            width: 280px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            outline: none;
+        }
+
+        #searchBox:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 4px rgba(76, 175, 80, 0.4);
+        }
+
+        th {
+            cursor: pointer;
+            position: relative;
+        }
+
+        th.sort-asc::after {
+            content: " ▲";
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        th.sort-desc::after {
+            content: " ▼";
+            font-size: 12px;
+            margin-left: 5px;
+        }
