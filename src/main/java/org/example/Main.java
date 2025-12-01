@@ -21,6 +21,7 @@ public class Main {
         // Dotenv 값 Spring Environment로 전달
         app.setDefaultProperties(Map.of(
                 "company.phone", dotenv.get("COMPANY_PHONE", "전화번호 없음")
+
         ));
 
         app.run(args);
