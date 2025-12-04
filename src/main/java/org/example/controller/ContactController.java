@@ -1,6 +1,8 @@
 package org.example.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import org.example.util.MobileUtils;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
@@ -19,7 +21,7 @@ public class ContactController {
                            @RequestParam String contact,
                            @RequestParam String email,
                            @RequestParam String body,
-                           RedirectAttributes redirectAttributes) {
+                           RedirectAttributes redirectAttributes, HttpServletRequest req) {
 
         String to = System.getProperty("MAIL_USERNAME");
 
@@ -39,6 +41,6 @@ public class ContactController {
         // 성공 메시지를 Flash Attribute로 전달
         redirectAttributes.addFlashAttribute("successMessage", "메일이 성공적으로 전송되었습니다!");
 
-        return "redirect:/user/contact"; // 리다이렉트
+        return MobileUtils.isMobile(req) ? "redirect:/m/user/contact" : "redirect:/user/contact"; // 리다이렉트
     }
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- 모바일 CSS -->
+    <link rel="stylesheet" th:href="@{/css/mobile.css}" href="/css/mobile.css">
+
+    <script>
+        function toggleMenu() {
+            const panel = document.getElementById("mobileMenu");
+            panel.classList.toggle("open");
+        }
+    </script>
+</head>
+<body>
+
+<div class="tw-head">
+
+    <!-- Logo -->
+    <div class="logo">
+        <a href="../mtest/main">
+            <div>logo</div>
+        </a>
+    </div>
+
+    <!-- PC 메뉴 -->
+    <div class="menu">
+        <a href="../user/request">REQUEST</a>
+        <a href="../user/works">WORKS</a>
+        <a href="../user/artists">ARTISTS</a>
+        <a href="../user/contact">CONTACT</a>
+    </div>
+
+    <!-- 모바일 햄버거 -->
+    <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+</div>
+
+<!-- 모바일 메뉴 패널 -->
+<div id="mobileMenu" class="mobile-menu-panel">
+    <div class="menu-inner">
+        <a href="../mtest/request">REQUEST</a>
+        <a href="../mtest/works">WORKS</a>
+        <a href="../mtest/artists">ARTISTS</a>
+        <a href="../mtest/contact">CONTACT</a>
+    </div>
+</div>
+
+</body>
+</html>
+

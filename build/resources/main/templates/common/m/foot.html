@@ -1,0 +1,31 @@
+<div th:fragment="footFragment" class="tw-foot" xmlns:th="http://www.thymeleaf.org">
+
+    <!-- 상단: 로고 + SNS -->
+    <div class="footer-top">
+        <div class="logo">
+            <div>LOGO</div>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank">
+                <img src="/images/facebook-icon.png" alt="Facebook">
+            </a>
+            <a href="https://x.com" target="_blank">
+                <img src="/images/x-icon.png" alt="X">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="/images/instagram-icon.png" alt="Instagram">
+            </a>
+        </div>
+    </div>
+
+    <!-- 하단: 회사 정보 -->
+    <div class="footer-bottom">
+        <p>소재지: 경기도 고양시 덕양구 향동동 523<br>디엠씨스타허브플러스 1408호</p>
+        <p>연락처: <span th:text="${companyPhone}">전화번호</span></p>
+        <p>이메일: hellowavrecords@gmail.com</p>
+        <p>대표이사: 이서준 · 김철수 · 박유리</p>
+    </div>
+
+</div>
+

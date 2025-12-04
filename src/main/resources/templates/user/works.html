@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <script>
+        if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
+            if (!location.hostname.startsWith("m.")) {
+                location.href = "https://m." + location.hostname + location.pathname;
+            }
+        }
+    </script>
     <meta charset="UTF-8">
     <title>Works</title>
-    <link rel="stylesheet" href="styles.css"> <!-- CSS 파일 경로 -->
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css"> <!-- CSS 파일 경로 -->
 </head>
 <body>
 

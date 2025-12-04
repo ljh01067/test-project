@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <script>
-        if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
-            if (!location.hostname.startsWith("m.")) {
-                location.href = "https://m." + location.hostname + location.pathname;
-            }
-        }
-    </script>
     <meta charset="UTF-8">
-    <title>Contact</title>
+    <title>Contact (Mobile)</title>
 
-    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
+    <!-- 모바일 CSS -->
+    <link rel="stylesheet" th:href="@{/css/mobile.css}" href="/css/mobile.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- 성공 메시지 alert -->
     <div th:if="${successMessage}">
         <script th:inline="javascript">
             /*<![CDATA[*/
@@ -23,28 +20,30 @@
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- 모바일 HEADER -->
 <div id="heads">
-    <th:block th:replace="common/head"/>
+    <th:block th:replace="common/m/head"/>
 </div>
 
-<main>
+<main class="tw-padding-0">
     <div class="title">CONTACT</div>
     <div class="divider"></div>
 
     <form action="/contact/send" method="post" class="request-form">
 
-        <!-- 📍 SECTION 1 -->
+        <!-- 🔹 SECTION 1: Contact Info -->
         <section>
             <h2>1. Contact Info</h2>
 
             <label for="nameInput">이름
                 <input id="nameInput" type="text" name="name" placeholder="이름을 입력해주세요" required>
-            </label><br>
+            </label>
+            <br>
 
             <label for="phoneInput">연락처
                 <input id="phoneInput" type="text" name="contact" placeholder="전화번호를 입력해주세요" required>
-            </label><br>
+            </label>
+            <br>
 
             <label for="emailInput">이메일
                 <input id="emailInput" type="email" name="email" placeholder="id@email.com" required>
@@ -53,23 +52,22 @@
 
         <div class="divider"></div>
 
-        <!-- 📍 SECTION 2 -->
+        <!-- 🔹 SECTION 2: Message -->
         <section>
             <h2>2. Message</h2>
-
-            <label for="messageInput"></label>
             <textarea id="messageInput" name="body" placeholder="내용을 입력해주세요" required></textarea>
         </section>
 
         <div class="divider"></div>
 
+        <!-- 제출 버튼 -->
         <button type="submit" class="submit-btn">Submit</button>
     </form>
 </main>
 
-<!-- FOOTER -->
+<!-- 모바일 FOOTER -->
 <div id="foot">
-    <th:block th:replace="common/foot"/>
+    <th:block th:replace="common/m/foot :: footFragment"/>
 </div>
 
 </body>

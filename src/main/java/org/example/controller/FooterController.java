@@ -1,5 +1,7 @@
 package org.example.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import org.example.util.MobileUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +14,8 @@ public class FooterController {
     private String companyPhone;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, HttpServletRequest req) {
         model.addAttribute("companyPhone", companyPhone);
-        return "user/main";
+        return MobileUtils.view("main", req); // PC/모바일 자동 분기
     }
 }

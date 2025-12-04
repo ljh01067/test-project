@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!-- 📌 모바일 접속 시 m. 도메인으로 이동 -->
     <script>
         if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
             if (!location.hostname.startsWith("m.")) {
@@ -8,21 +9,25 @@
             }
         }
     </script>
+
     <meta charset="UTF-8">
     <title>Works</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css"> <!-- CSS 파일 경로 -->
+
+    <!-- 📌 모바일용 스타일 -->
+    <link rel="stylesheet" th:href="@{/m/styles.css}" href="/m/styles.css">
 </head>
+
 <body>
 
-<!-- 헤더와 푸터를 Thymeleaf 템플릿으로 포함 -->
-<div id="heads" xmlns:th="http://www.thymeleaf.org">
-    <th:block th:replace="common/head"/> <!-- 헤더 포함 -->
+<!-- 📌 MOBILE HEADER -->
+<div id="heads">
+    <th:block th:replace="common/m/head"/>
 </div>
 
-<!-- 본문 내용 -->
 <main>
     <div class="title">WORKS</div>
     <div class="divider"></div>
+
     <p>현재는 공개된 작품이 없습니다.<br>
         하지만 앞으로 다양한 음악 프로젝트 결과물과 창작물을 이 페이지에서 소개할 예정입니다.</p>
 
@@ -31,12 +36,13 @@
 
     <div class="divider"></div>
 
-    <p>작품과 관련한 문의나 협업 제안은 <a href="/contact">Contact 페이지</a>를 통해 보내주시면 감사하겠습니다.</p>
+    <p>작품과 관련한 문의나 협업 제안은
+        <a href="/contact">Contact 페이지</a>를 통해 보내주시면 감사하겠습니다.</p>
 </main>
 
-<!-- 푸터를 Thymeleaf 템플릿으로 포함 -->
-<div id="foot" xmlns:th="http://www.thymeleaf.org">
-    <th:block th:replace="common/foot"/> <!-- 푸터 포함 -->
+<!-- 📌 MOBILE FOOTER -->
+<div id="foot">
+    <th:block th:replace="common/m/foot"/>
 </div>
 
 </body>
