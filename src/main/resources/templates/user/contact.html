@@ -13,11 +13,10 @@
 
     <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <div th:if="${successMessage}">
         <script th:inline="javascript">
-            /*<![CDATA[*/
             alert([[${successMessage}]]);
-            /*]]>*/
         </script>
     </div>
 </head>
@@ -28,43 +27,44 @@
     <th:block th:replace="common/head"/>
 </div>
 
-<main>
+<!-- 본문 -->
+<main class="request-page">
+
     <div class="title">CONTACT</div>
     <div class="divider"></div>
 
     <form action="/contact/send" method="post" class="request-form">
 
-        <!-- 📍 SECTION 1 -->
+        <!-- 1. Contact Info -->
         <section>
             <h2>1. Contact Info</h2>
 
-            <label for="nameInput">이름
-                <input id="nameInput" type="text" name="name" placeholder="이름을 입력해주세요" required>
-            </label><br>
+            <label>이름
+                <input type="text" name="name" placeholder="이름을 입력해주세요" required>
+            </label>
 
-            <label for="phoneInput">연락처
-                <input id="phoneInput" type="text" name="contact" placeholder="전화번호를 입력해주세요" required>
-            </label><br>
+            <label>연락처
+                <input type="text" name="contact" placeholder="전화번호를 입력해주세요" required>
+            </label>
 
-            <label for="emailInput">이메일
-                <input id="emailInput" type="email" name="email" placeholder="id@email.com" required>
+            <label>이메일
+                <input type="email" name="email" placeholder="id@email.com" required>
             </label>
         </section>
 
         <div class="divider"></div>
 
-        <!-- 📍 SECTION 2 -->
+        <!-- 2. Message -->
         <section>
             <h2>2. Message</h2>
-
-            <label for="messageInput"></label>
-            <textarea id="messageInput" name="body" placeholder="내용을 입력해주세요" required></textarea>
+            <textarea name="body" placeholder="내용을 입력해주세요" required></textarea>
         </section>
 
         <div class="divider"></div>
 
         <button type="submit" class="submit-btn">Submit</button>
     </form>
+
 </main>
 
 <!-- FOOTER -->
