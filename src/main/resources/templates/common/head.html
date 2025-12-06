@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" data-theme="light">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
     <meta charset="UTF-8">
@@ -9,8 +9,8 @@
     <!-- Logo 부분 -->
     <div class="logo">
         <a href="../user/main">
-            <img src="/images/WAV-RECORDS.png" alt="WAV-RECORDS Logo">  <!--헤드 하얀색 배경 로고 이미지 -->
-            <!-- <img src="/images/WAV-BLACK.png" alt="WAV-RECORDS Logo">  헤드 검은색 배경 로고 이미지 -->
+            <img src="/images/WAV-RECORDS.png" class="light-logo">
+            <img src="/images/WAV-BLACK.png" class="dark-logo" style="display:none;">
         </a>
     </div>
 
@@ -30,5 +30,8 @@
         </a>
     </div>
 </div>
+
+<script th:src="@{/js/head.js}" src="/js/head.js"></script>
+
 </body>
 </html>

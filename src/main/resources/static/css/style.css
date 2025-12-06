@@ -1,3 +1,7 @@
+:root {
+    color-scheme: light;
+}
+
 html, body {
     height: 100%;  /* 화면 전체 높이 */
     margin: 0;     /* 기본 margin 제거 */
@@ -440,7 +444,7 @@ textarea {
 
  .content-page {
      max-width: 900px;
-     margin: 60px auto;
+     margin: 80px auto 60px !important;
      padding: 0 20px;
      box-sizing: border-box;
 
@@ -455,3 +459,143 @@ textarea {
  .content-page a {
      text-decoration: underline;
  }
+ /* ============================================
+    Global Typography & Spacing Refinement
+ ============================================ */
+ h1, h2, h3, .title {
+     font-weight: 700;
+ }
+
+ body, p, label, input, textarea {
+     font-weight: 400;
+ }
+
+ small, .sub, .footer-bottom p {
+     font-weight: 300;
+ }
+
+ /* divider 색상 살짝 연하게 */
+ .divider {
+     background: #F0F0F0 !important;
+ }
+
+ /* ============================================
+    Navigation Hover 효과
+ ============================================ */
+ .menu a {
+     position: relative;
+     transition: opacity 0.3s ease;
+ }
+
+ .menu a:hover {
+     opacity: 0.7;
+ }
+
+ .menu a::after {
+     content: "";
+     position: absolute;
+     bottom: -4px;
+     left: 0;
+     width: 0%;
+     height: 2px;
+     background-color: #000;
+     transition: width 0.3s ease;
+ }
+
+ .menu a:hover::after {
+     width: 100%;
+ }
+
+ /* ============================================
+    Form (Request / Contact) 정제 스타일
+ ============================================ */
+ .request-page input,
+ .request-page textarea,
+ .content-page input,
+ .content-page textarea {
+     border-radius: 6px;
+     border-color: #D4D4D4;
+ }
+
+ .request-page input:focus,
+ .request-page textarea:focus,
+ .content-page input:focus,
+ .content-page textarea:focus {
+     outline: none;
+     border-color: #000;
+     box-shadow: 0 0 0 1px #000 inset;
+ }
+
+ /* 체크박스 라벨 정렬 미세 조정 */
+ .checkbox {
+     gap: 6px;
+ }
+
+ /* ============================================
+    Buttons
+ ============================================ */
+ .submit-btn {
+     transition: background 0.3s ease, opacity 0.3s ease;
+ }
+
+ .submit-btn:hover {
+     background: #333 !important;
+ }
+
+ /* ============================================
+    Titles (Works / Artists / Contact 페이지)
+ ============================================ */
+ .content-page .title {
+     font-size: 42px;
+     font-weight: 700;
+     margin-bottom: 20px;
+ }
+
+ /* Works / Artists 본문 여백 정리 */
+ .content-page p {
+     margin-bottom: 20px;
+ }
+
+ /* ============================================
+    Section Intro (메인 페이지) — subtle fade-in
+ ============================================ */
+ .hero-title, .main-section h1, .main-section p {
+     opacity: 0;
+     animation: fadeIn 1s ease forwards;
+ }
+
+ .hero-title { animation-delay: 0.1s; }
+ .main-section p { animation-delay: 0.2s; }
+
+ @keyframes fadeIn {
+     from { opacity: 0; transform: translateY(10px); }
+     to { opacity: 1; transform: translateY(0); }
+ }
+
+/* ============================================
+   🌙 Dark Theme — Header ONLY
+============================================ */
+
+/* 헤더 배경 */
+html[data-theme="dark"] .tw-head {
+    background-color: #000;      /* 검은 배경 */
+    border-bottom: 1px solid #444;
+}
+
+/* 메뉴 글씨 */
+html[data-theme="dark"] .menu a {
+    color: #FFF !important;      /* 흰 글씨 */
+}
+
+/* 메뉴 hover 밑줄 색도 흰색 */
+html[data-theme="dark"] .menu a::after {
+    background-color: #FFF;
+}
+
+/* 로고 스위칭 */
+html[data-theme="dark"] .light-logo {
+    display: none !important;
+}
+html[data-theme="dark"] .dark-logo {
+    display: block !important;
+}
