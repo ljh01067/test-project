@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script>
+        if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
+            if (!location.hostname.startsWith("m.")) {
+                location.href = "https://m." + location.hostname + location.pathname;
+            }
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <title>About</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
+</head>
+
+<body>
+
+<div id="heads"><th:block th:replace="common/head"/></div>
+
+<main class="content-page">
+
+    <!-- Title -->
+    <h1 class="title">ABOUT</h1>
+    <div class="divider"></div>
+
+    <!-- Overview -->
+    <section class="about-section">
+        <p>
+            WAV RECORDS는 음악 · 브랜드 · 스토리텔링을 하나의 흐름으로 연결하는<br>
+            크리에이티브 레이블입니다.
+        </p>
+        <p>
+            우리는 단순한 제작 스튜디오가 아니라,<br>
+            아티스트가 자신의 아이덴티티를 찾고 발전시킬 수 있는<br>
+            ‘장기적 크리에이티브 파트너’를 지향합니다.
+        </p>
+        <p>
+            WAV는 “We Are Vibes”라는 의미처럼,<br>
+            우리의 음악과 콘텐츠가 하나의 분위기(Vibe)로 이어지는 것을 목표로 합니다.
+        </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Team Section -->
+    <section class="artist-info">
+        <h2>Our Team</h2>
+
+        <div class="artist-card">
+            <img src="/images/lsj-camera.png" alt="lsj-camera">
+            <h3>Producer — 이서준 (Lee Seojun)</h3>
+            <p>• Music Producing</p>
+            <p>• Songwriting & Arrangement</p>
+            <p>• Sound Direction</p>
+        </div>
+
+        <div class="artist-card">
+            <img src="/images/lsj-camera.png" alt="lsj-camera">
+            <h3>Director — 임호빈 (Im Hobin)</h3>
+            <p>• Visual/Brand Direction</p>
+            <p>• Artist Management</p>
+            <p>• Creative Strategy</p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Philosophy -->
+    <section class="about-section">
+        <h2>Our Philosophy</h2>
+        <p>
+            음악은 단순한 결과물이 아니라, 과정 전체에서 탄생합니다.<br>
+            WAV RECORDS는 이 과정을 함께 설계하고 함께 책임지는 팀입니다.
+        </p>
+        <p>
+            우리는 아티스트의 고유한 세계관을 구축하며,<br>
+            유행에 휘둘리는 음악이 아닌, 아티스트의 색을 가장 선명하게 만드는 음악을 추구합니다.
+        </p>
+        <p>
+            효율적인 제작 루틴, 안정적인 시스템, 그리고 감각적인 크리에이티브로<br>
+            아티스트에게 가장 신뢰할 수 있는 환경을 제공합니다.
+        </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Location -->
+    <section class="location-section">
+        <h2>Studio Location</h2>
+
+        <div class="map-wrapper">
+            <img src="/images/company-map.png" alt="WAV RECORDS Map" class="location-map">
+        </div>
+
+        <p class="studio-address">
+            경기도 고양시 덕양구 향동동 523<br>
+            디엠씨스타허브플러스 1408호
+        </p>
+    </section>
+
+</main>
+
+<div id="foot"><th:block th:replace="common/foot"/></div>
+
+</body>
+</html>

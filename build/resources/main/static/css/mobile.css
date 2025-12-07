@@ -404,3 +404,118 @@ html[data-theme="dark"] .mobile-menu-panel {
     background-color: #000;
     border-right: 1px solid #444;
 }
+/* ============================================
+   MAIN (모바일 메인 페이지 신 구조 대응)
+============================================ */
+
+/* Section 제목 통일 */
+.main-section h1,
+.main-section h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    line-height: 1.35;
+}
+
+/* section 설명문 */
+.main-section p {
+    font-size: 15px;
+    line-height: 1.55;
+    opacity: 0.85;
+    margin: 0 14px 26px 14px;
+}
+
+/* ===========================
+   SERVICES 카드 (What We Do)
+=========================== */
+.services-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    padding: 0 18px;
+}
+
+.services-cards .card {
+    background: #FAFAFA;
+    border: 1px solid #E5E5E5;
+    padding: 18px 16px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+/* 카드 제목 */
+.services-cards .card h3 {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+/* 카드 내용 */
+.services-cards .card p {
+    font-size: 14px;
+    opacity: 0.75;
+    margin: 0;
+}
+
+/* ===========================
+   WORKFLOW (4 steps)
+=========================== */
+.workflow-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 0 18px;
+}
+
+.workflow-grid .wf-step {
+    background: #F7F7F7;
+    border: 1px solid #E6E6E6;
+    padding: 16px 14px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.workflow-grid .wf-step h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.workflow-grid .wf-step p {
+    font-size: 14px;
+    opacity: 0.75;
+}
+
+/* 숫자 강조 (모바일은 작게) */
+.wf-num {
+    font-size: 26px;
+    font-weight: 700;
+    opacity: 0.15;
+    margin-bottom: 4px;
+    display: block;
+}
+
+/* ===========================
+   CTA 버튼
+=========================== */
+.cta-btn,
+.submit-btn {
+    display: block;
+    width: calc(100% - 36px);
+    margin: 0 auto;
+    padding: 15px;
+    font-size: 17px;
+    text-align: center;
+
+    background: #000;
+    color: #FFF;
+    border-radius: 8px;
+
+    transition: opacity 0.25s ease;
+}
+
+.cta-btn:active,
+.submit-btn:active {
+    opacity: 0.75;
+}

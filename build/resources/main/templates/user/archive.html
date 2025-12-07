@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <script>
+        if (/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
+            if (!location.hostname.startsWith("m.")) {
+                location.href = "https://m." + location.hostname + location.pathname;
+            }
+        }
+    </script>
+
+    <meta charset="UTF-8">
+    <title>Archive</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css">
+</head>
+
+<body>
+<div id="heads"><th:block th:replace="common/head"/></div>
+
+<main class="content-page">
+
+    <div class="title">ARCHIVE</div>
+    <div class="divider"></div>
+
+    <!-- ================================
+         INTRO SECTION — 개선된 버전
+    ================================= -->
+    <section style="margin-bottom: 60px;">
+        <p>
+            WAV RECORDS는 아티스트와 프로젝트의 톤(Tone)과 방향성(Direction)을 기반으로
+            음악과 브랜드를 설계하는 크리에이티브 팀입니다.
+        </p>
+
+        <p>
+            이 페이지는 저희가 참여한 프로젝트와 작업의 이야기를 담습니다.<br>
+            현재는 초기 단계로 공개된 결과물은 없지만,
+            추후 제작되는 음악·브랜드·콘텐츠 프로젝트를 순차적으로 업로드할 예정입니다.
+        </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ================================
+         CREATIVE APPROACH
+    ================================= -->
+    <section style="margin-bottom: 60px;">
+        <h2>Our Creative Approach</h2>
+        <p>
+            WAV RECORDS는 단순히 음악만 만드는 것이 아니라,<br>
+            프로젝트가 지니는 이야기, 분위기, 감정을 설계하는 것에 집중합니다.
+        </p>
+
+        <p>
+            아티스트가 표현하고 싶은 세계관을 가장 세밀하게 구조적으로 표현하고,<br>
+            음악·비주얼·메시지가 하나의 흐름(Vibe)으로 이어지는 결과물을 목표로 합니다.
+        </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ================================
+         PROJECT CATEGORIES
+    ================================= -->
+    <section style="margin-bottom: 60px;">
+        <h2>Project Categories</h2>
+        <p>WAV RECORDS에서 다루게 될 주요 프로젝트 분야입니다.</p>
+
+        <ul style="line-height: 2.0; margin-top: 20px;">
+            <li><b>• Music Producing</b> — 아티스트 맞춤형 음악 제작</li>
+            <li><b>• Arrangement</b> — 스토리와 감정을 확장시키는 편곡</li>
+            <li><b>• Sound Design</b> — 장르 특성을 반영한 사운드 디자인</li>
+            <li><b>• Mix / Master</b> — 최종 사운드 퀄리티를 높이는 마무리</li>
+            <li><b>• Brand Storytelling</b> — 프로젝트의 톤앤매너 및 정체성 설계</li>
+            <li><b>• Content Music</b> — 영상 / 디지털 콘텐츠용 음악 제작</li>
+        </ul>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ================================
+         PROJECT LIST (COMING SOON)
+         → 카드형 레이아웃 & 중앙 정렬
+    ================================= -->
+    <section style="margin-bottom: 70px;">
+        <h2>Projects (Coming Soon)</h2>
+        <p>
+            곧 공개될 프로젝트들을 준비하고 있습니다.<br>
+            아래는 향후 업데이트될 아카이브 예시입니다.
+        </p>
+
+        <div class="archive-grid">
+            <div class="archive-card">
+                <h3>Project 01</h3>
+                <p>아티스트 싱글 앨범 제작<br><span class="sub">(후속 공개 예정)</span></p>
+            </div>
+
+            <div class="archive-card">
+                <h3>Project 02</h3>
+                <p>브랜드 아이덴티티 사운드 디자인<br><span class="sub">(Coming Soon)</span></p>
+            </div>
+
+            <div class="archive-card">
+                <h3>Project 03</h3>
+                <p>콘텐츠용 BGM 패키지<br><span class="sub">(Coming Soon)</span></p>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ================================
+         CTA SECTION
+    ================================= -->
+    <section style="margin-bottom: 50px; text-align:center;">
+        <h2>Work With Us</h2>
+
+        <p>
+            함께 만들고 싶은 음악이나 브랜드가 있다면,<br>
+            아래 REQUEST 페이지에서 상담을 신청해주세요.
+        </p>
+
+        <a href="/user/request" class="cta-btn">프로젝트 상담 신청하기</a>
+    </section>
+
+</main>
+
+<div id="foot"><th:block th:replace="common/foot"/></div>
+</body>
+</html>

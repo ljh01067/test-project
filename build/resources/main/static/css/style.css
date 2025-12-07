@@ -157,7 +157,7 @@ a {
 }
 
 section {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 section h2 {
@@ -261,7 +261,7 @@ textarea {
         }
         .main-section {
             width: 100%;
-            min-height: 100vh; /* 화면 높이를 최소 100%로 */
+            min-height: 60vh; /* 화면 높이를 최소 60%로 */
             box-sizing: border-box; /* 패딩 포함 크기 계산 */
             display: flex;
             flex-direction: column;
@@ -270,18 +270,86 @@ textarea {
             text-align: center; /* 텍스트 가운데 정렬 */
             margin-bottom:-80px;
         }
-        .section-intro {
+        .intro-section {
             background-color:#FAFAFA;
         }
-
-        .section-news{
-            background-color:#FAFAFA;
+        /* 제목 & 설명 */
+        .section-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .section-desc {
+            font-size: 16px;
+            opacity: 0.85;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+        .section-desc.small {
+            font-size: 15px;
+            opacity: 0.75;
         }
         .services-cards{
             display:flex;
             justify-content:center;
             gap:40px;
             margin-top:40px;
+        }
+        .services-cards.tight {
+            gap: 30px;
+        }
+
+        /* 서비스 카드 */
+        .service-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            opacity: 0.75;
+        }
+        /* WORKFLOW GRID */
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 900px;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .wf-step h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .wf-step p {
+            font-size: 14px;
+            opacity: 0.75;
+        }
+
+        /* 숫자 강조 */
+        .wf-num {
+            font-size: 32px;
+            font-weight: 700;
+            color: #000;
+            opacity: 0.15;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* 모바일 대응 */
+        @media(max-width: 768px) {
+            .workflow-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .main-section {
+                min-height: auto;
+                padding: 60px 20px;
+            }
         }
         .tw-padding-0{
             padding:0;
@@ -419,26 +487,6 @@ textarea {
             to { top: 0; opacity: 0; }
         }
 /* ============================
-   ARTISTS / WORKS 텍스트 페이지 공통 레이아웃
-============================ */
-
-.content-page {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-
-    font-size: 18px;
-    line-height: 1.7;
-}
-
-.content-page p {
-    margin-bottom: 22px;
-}
-
-.content-page a {
-    text-decoration: underline;
-}/* ============================
     ARTISTS / WORKS 텍스트 페이지 공통 레이아웃
  ============================ */
 
@@ -598,4 +646,186 @@ html[data-theme="dark"] .light-logo {
 }
 html[data-theme="dark"] .dark-logo {
     display: block !important;
+}
+
+/* ============================
+   ABOUT PAGE
+============================ */
+
+/* Section 여백 정리 */
+.about-section p {
+    margin-bottom: 20px;
+}
+
+/* ============================================
+   ABOUT — Team Section (개선 적용 최종본)
+============================================ */
+
+/* Team 전체 영역 */
+.artist-info {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2열 구성 */
+    gap: 30px;
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 제목 */
+.artist-info h2 {
+    grid-column: 1 / -1;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px; /* 35px → 40px로 약간 증가 */
+    text-align: center;
+}
+
+/* 카드 */
+.artist-card {
+    border: 1px solid #E5E5E5;
+    padding: 22px 28px;
+    border-radius: 10px;
+    background: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* hover 효과 */
+.artist-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* 프로필 이미지 */
+.artist-card img {
+    width: 100%;
+    aspect-ratio: 4/5;     /* 일정한 비율 유지 */
+    object-fit: cover;     /* 꽉 차도록 */
+    border-radius: 6px;
+    margin-bottom: 15px;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* 이름/직책 */
+.artist-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* 역할 목록 */
+.artist-card p {
+    margin: 4px 0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* Dark mode */
+html[data-theme="dark"] .artist-card {
+    background: #1A1A1A;
+    border-color: #333;
+    color: #EEE;
+}
+
+/* 📱 모바일 대응 */
+@media (max-width: 768px) {
+    .artist-info {
+        grid-template-columns: 1fr;
+    }
+}
+/* ============================================
+   LOCATION 개선
+============================================ */
+
+.location-section h2 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+.map-wrapper {
+    width: 100%;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+.location-map {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px; /* 10px → 12px */
+    border: 1px solid #DDD;
+}
+
+.studio-address {
+    text-align: center;
+    line-height: 1.6;
+    font-size: 15px;
+    opacity: 0.85;
+    margin-top: 10px;  /* 조금 띄워줌 */
+}
+.about-section p {
+    margin-bottom: 22px; /* 기존 20px → 22px */
+}
+/* ============================
+   ARCHIVE PAGE — Card Layout
+============================ */
+
+.archive-grid {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.archive-card {
+    width: 260px;
+    padding: 22px 24px;
+    border: 1px solid #E5E5E5;
+    border-radius: 10px;
+    background: #FAFAFA;
+    text-align: center;
+    transition: 0.25s ease;
+}
+
+.archive-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.archive-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.archive-card p {
+    font-size: 14px;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+.archive-card .sub {
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+/* CTA Button */
+.cta-btn {
+    text-decoration: none !important;
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 22px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.cta-btn:hover {
+    background: #000;
+    color: #fff;
 }
