@@ -17,14 +17,12 @@
     <link rel="stylesheet" th:href="@{/css/mobile.css}" href="/css/mobile.css">
 
     <script th:inline="javascript">
-        /*<![CDATA[*/
         window.onload = function() {
             var message = /*[[${message}]]*/ null;
             if (message) {
                 alert(message);
             }
         }
-        /*]]>*/
     </script>
 </head>
 
@@ -43,7 +41,7 @@
 
         <!-- 1. 개인정보 -->
         <section>
-            <h2>1. 개인정보 입력</h2>
+            <h2 class="request-section-title">1. 개인정보 입력</h2>
 
             <label>이름
                 <input type="text" name="name" required>
@@ -67,7 +65,7 @@
 
         <!-- 2. 프로젝트 기본 정보 -->
         <section>
-            <h2>2. 프로젝트 기본 정보</h2>
+            <h2 class="request-section-title">2. 프로젝트 기본 정보</h2>
 
             <p>작업 범위 선택 (중복 가능)</p>
 
@@ -81,22 +79,22 @@
 
             <label>희망 마감일
                 <input type="date" name="deadline" required>
-            </label>
+            </label><br>
 
             <label>참고 장르
                 <input type="text" name="genre" required>
-            </label>
+            </label><br>
 
             <label>레퍼런스 URL
                 <input type="url" name="referenceUrl" placeholder="https://example.com" required>
-            </label>
+            </label><br>
         </section>
 
         <div class="divider"></div>
 
         <!-- 3. 파일 업로드 -->
         <section>
-            <h2>3. 파일 업로드</h2>
+            <h2 class="request-section-title">3. 파일 업로드</h2>
 
             <label>가이드 보컬 파일
                 <input type="file" name="guide" required>
@@ -115,7 +113,7 @@
 
         <!-- 4. 추가 요청 -->
         <section>
-            <h2>4. 추가 요청 사항</h2>
+            <h2 class="request-section-title">4. 추가 요청 사항</h2>
             <textarea name="details" placeholder="프로젝트에 대한 상세 요청을 입력하세요" required></textarea>
         </section>
 
@@ -123,7 +121,7 @@
 
         <!-- 5. 최종 확인 -->
         <section>
-            <h2>5. 제출 전 확인</h2>
+            <h2 class="request-section-title">5. 제출 전 확인</h2>
 
             <label class="checkbox">
                 <input type="checkbox" name="costAgree" required> 비용 안내 확인

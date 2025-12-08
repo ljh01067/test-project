@@ -28,3 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
     }
 });
+if (!document.documentElement.hasAttribute("data-theme")) {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
+}
