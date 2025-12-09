@@ -261,17 +261,19 @@ textarea {
         }
         .main-section {
             width: 100%;
-            min-height: 60vh; /* 화면 높이를 최소 60%로 */
-            box-sizing: border-box; /* 패딩 포함 크기 계산 */
-            display: flex;
-            flex-direction: column;
-            justify-content: center; /* 세로 중앙 정렬 */
-            align-items: center; /* 가로 중앙 정렬 */
-            text-align: center; /* 텍스트 가운데 정렬 */
-            margin-bottom:-80px;
+            box-sizing: border-box;
+            text-align: center;
+
+            min-height: auto; /* 기존 60vh 제거 */
+            display: block;   /* flex 제거 */
         }
         .intro-section {
-            background-color:#FAFAFA;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #FAFAFA;
         }
         /* 제목 & 설명 */
         .section-title {
@@ -766,6 +768,14 @@ html[data-theme="dark"] .artist-card {
     font-size: 15px;
     opacity: 0.85;
     margin-top: 10px;  /* 조금 띄워줌 */
+}
+.location-guide {
+    font-size: 15px;
+    color: #555;
+    text-align: center;
+    margin: -5px 0 18px;
+    line-height: 1.6;
+    opacity: 0.9;
 }
 .about-section p {
     margin-bottom: 22px; /* 기존 20px → 22px */
